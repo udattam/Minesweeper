@@ -15,15 +15,15 @@ Cell.prototype.show = function () {
     rect(this.x, this.y, this.w, this.w);
     if (this.revealed) {
         if (this.mine) {
-            fill(127);
+            fill(color(230, 57, 70));
             ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5, this.w * 0.75);
         }
         else {
-            fill(200);
+            fill(color(131, 211, 154));
             rect(this.x, this.y, this.w, this.w);
             textAlign(CENTER);
             if (this.neighbourMines > 0) {
-                fill(0);
+                fill(70, 85, 92);
                 text(this.neighbourMines, this.x + this.w * 0.5, this.y + this.w - 6);
             }
         }

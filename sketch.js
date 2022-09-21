@@ -12,7 +12,7 @@ let rows;
 let totalMines = 50;
 
 function setup() {
-    createCanvas(500, 500);
+    createCanvas(400, 400);
     cols = floor(width / w);
     rows = floor(height / w);
     grid = make2DArray(cols, rows);
@@ -68,6 +68,7 @@ function mousePressed() {
                     gameOver();
                 }
             }
+
         }
     }
 }
