@@ -27,8 +27,8 @@ body {
 
 .board {
     display: inline-grid;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 6px;
+    border-radius: 6px;
     grid-template-columns: repeat(var(--size), 60px);
     grid-template-rows: repeat(var(--size), 60px);
     gap: 4px;
@@ -42,13 +42,13 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
-    border: 1.5px solid #d8e2dc;
+    border: 1.5px solid #f1faee;
     border-radius: 4px;
     user-select: none;
 }
 
 .board>[data-status="hidden"] {
-    background-color: #d8e2dc;
+    background-color: #f1faee;
     cursor: pointer;
 }
 
@@ -57,7 +57,7 @@ body {
 }
 
 .board>[data-status="number"] {
-    background-color: none;
+    background-color: #2d6a4f;
 }
 
 .board>[data-status="marked"] {
@@ -66,7 +66,7 @@ body {
 
 .socials {
     text-align: center;
-    margin: 10px 0;
+    margin: 0;
 }
 
 .socials>a {
@@ -80,4 +80,9 @@ body {
 
 .footer-text {
     font-size: 24px;
+}
+
+#message {
+    font-size: 2rem;
+    margin-top: 10px;
 }

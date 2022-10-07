@@ -1,28 +1,28 @@
-import { TILE_STATUSES, createBoard, markTile } from './minesweeper.js';
+import { createBoard, markTile, revealTile, checkGameEnd, getMarkedMinesCount } from './minesweeper.js';
 
-// addEventListener('contextmenu', e => {
-//     e.preventDefault();
-// });
+const userInput = prompt("Enter the board size you want to play with");
 
-
-const BOARD_SIZE = 10;
-const NUMBER_OF_MINES = 100;
+const BOARD_SIZE = userInput;
+const NUMBER_OF_MINES = userInput;
 
 
 const board = createBoard(BOARD_SIZE, NUMBER_OF_MINES);
-const boardElement = document.querySelector('.board');
-const minesLeftText = document.getElementById('mines-left-count');
+export const boardElement = document.querySelector('.board');
+export const minesLeftText = document.getElementById('mines-left-count');
+export const messageText = document.getElementById('message');
 
 board.forEach(row => {
     row.forEach(tile => {
         boardElement.append(tile.element);
         tile.element.addEventListener('click', () => {
             revealTile(board, tile);
+            checkGameEnd(board);
         });
         tile.element.addEventListener('contextmenu', e => {
             e.preventDefault();
             markTile(tile);
-            listMinesLeft();
+            listMinesLeft(board);
+            checkGameEnd(board);
         });
     });
 });
@@ -30,31 +30,7 @@ board.forEach(row => {
 boardElement.style.setProperty('--size', BOARD_SIZE);
 minesLeftText.textContent = NUMBER_OF_MINES;
 
-function revealTile(board, tile) {
-    if (tile.status !== TILE_STATUSES.HIDDEN) {
-        return;
-    };
-    if (tile.mine) {
-        console.log('GAME OVER');
-        return;
-    };
-    tile.status = TILE_STATUSES.VISIBLE;
-    listMinesLeft();
-    if (tile.neighbour === 0) {
-        tile.neighbours.forEach(neighbour => {
-            revealTile(board, neighbour);
-        });
-    };
-};
-
-function listMinesLeft() {
-    let markedMinesCount = 0;
-    for (let x = 0; x < BOARD_SIZE; x++) {
-        for (let y = 0; y < BOARD_SIZE; y++) {
-            if (board[x][y].status === TILE_STATUSES.MARKED) {
-                markedMinesCount++;
-            };
-        };
-    };
+function listMinesLeft(board) {
+    let markedMinesCount = getMarkedMinesCount(board);
     minesLeftText.textContent = NUMBER_OF_MINES - markedMinesCount;
 };
