@@ -16,12 +16,13 @@ Minesweeper is a web based implementation of the classic game of Minesweeper. It
 
 ## Features
 
-- Responsive design
+- Users can choose the size of the board. The number of mines is the same as the size of the board
 - Flagging
 - Game won when all non-mine cells are revealed and no mines are clicked
+- Game won when all mine cells are marked
 - Game lost when a mine is clicked
 - Number of mines left
-- Number of mines in the surrounding cells
+- Number of mines in the surrounding cells revealed on click
 
 ## Technologies
 
