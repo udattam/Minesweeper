@@ -34,7 +34,7 @@ Minesweeper is a web based implementation of the classic game of Minesweeper. It
 
 ## Usage
 
-Visit the website [here](https://github-minesweeper.herokuapp.com/) and play the game.
+Visit the website [here](https://udattam.github.io/Minesweeper) and play the game.
 
 ## Contributing
 
