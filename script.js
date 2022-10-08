@@ -1,13 +1,14 @@
 import { createBoard, markTile, revealTile, checkGameEnd, getMarkedMinesCount } from './minesweeper.js';
 
-const userInput = prompt("Enter the board size you want to play with");
-while (userInput < 4 || userInput > 15) {
-    userInput = prompt("Enter the board size you want to play with");
+let BOARD_SIZE = 8;
+let NUMBER_OF_MINES = 8;
+let userInput = prompt("Enter the board size you want to play with");
+if (userInput === null || userInput === "" | parseInt(userInput) < 4 || parseInt(userInput) > 20) {
+    alert("Invalid input. Default board size will be used");
+} else {
+    BOARD_SIZE = parseInt(userInput);
+    NUMBER_OF_MINES = parseInt(userInput);
 };
-
-const BOARD_SIZE = userInput;
-const NUMBER_OF_MINES = userInput;
-
 
 const board = createBoard(BOARD_SIZE, NUMBER_OF_MINES);
 export const boardElement = document.querySelector('.board');
