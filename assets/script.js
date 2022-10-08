@@ -1,19 +1,23 @@
-import { createBoard, markTile, revealTile, checkGameEnd, getMarkedMinesCount } from './minesweeper.js';
+import { createBoard, markTile, revealTile, checkGameEnd, getMarkedMinesCount, markedMax } from './minesweeper.js';
 
-let BOARD_SIZE = 8;
-let NUMBER_OF_MINES = 8;
+let BOARD_SIZE = 10;
+let NUMBER_OF_MINES = 10;
 let userInput = prompt("Enter the board size you want to play with");
 if (userInput === null || userInput === "" | parseInt(userInput) < 4 || parseInt(userInput) > 20) {
     alert("Invalid input. Default board size will be used");
 } else {
     BOARD_SIZE = parseInt(userInput);
     NUMBER_OF_MINES = parseInt(userInput);
-};
+}
 
 const board = createBoard(BOARD_SIZE, NUMBER_OF_MINES);
 export const boardElement = document.querySelector('.board');
 export const minesLeftText = document.getElementById('mines-left-count');
 export const messageText = document.getElementById('message');
+
+boardElement.addEventListener('contextmenu', e => {
+    e.preventDefault();
+});
 
 board.forEach(row => {
     row.forEach(tile => {
@@ -24,6 +28,9 @@ board.forEach(row => {
         });
         tile.element.addEventListener('contextmenu', e => {
             e.preventDefault();
+            if (markedMax(board)) {
+                return;
+            }
             markTile(tile);
             listMinesLeft(board);
             checkGameEnd(board);

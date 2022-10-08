@@ -64,22 +64,13 @@ body {
     background-color: #ffca3a;
 }
 
-.socials {
-    text-align: center;
-    margin: 0;
-}
-
-.socials>a {
-    margin-left: 4px;
-    margin-right: 4px;
-}
-
-.socials>a>img {
-    height: 24px;
-}
-
 .footer-text {
     font-size: 24px;
+    text-align: center;
+}
+
+.footer-text>a {
+    text-decoration: none;
 }
 
 #message {

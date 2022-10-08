@@ -16,13 +16,12 @@ Minesweeper is a web based implementation of the classic game of Minesweeper. It
 
 ## Features
 
-- Users can choose the size of the board. The number of mines is the same as the size of the board
+- Responsive design
 - Flagging
 - Game won when all non-mine cells are revealed and no mines are clicked
-- Game won when all mine cells are marked
 - Game lost when a mine is clicked
 - Number of mines left
-- Number of mines in the surrounding cells revealed on click
+- Number of mines in the surrounding cells
 
 ## Technologies
 
@@ -35,7 +34,7 @@ Minesweeper is a web based implementation of the classic game of Minesweeper. It
 
 ## Usage
 
-Visit the website [here](https://udattam.github.io/Minesweeper) and play the game.
+Visit the website [here](https://github-minesweeper.herokuapp.com/) and play the game.
 
 ## Contributing
 

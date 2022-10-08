@@ -168,3 +168,15 @@ export function getMarkedMinesCount(board) {
     };
     return markedMinesCount;
 }
+
+export function markedMax(board) {
+    let markedMax = 0;
+    for (let x = 0; x < board.length; x++) {
+        for (let y = 0; y < board.length; y++) {
+            if (board[x][y].status === TILE_STATUSES.MARKED) {
+                markedMax++;
+            };
+        };
+    };
+    return markedMax == Math.floor(board.length * board.length / 3);
+}
