@@ -178,5 +178,5 @@ export function markedMax(board) {
             };
         };
     };
-    return markedMax == Math.floor(board.length * board.length / 5);
+    return markedMax === Math.floor(board.length * board.length / 5);
 }
